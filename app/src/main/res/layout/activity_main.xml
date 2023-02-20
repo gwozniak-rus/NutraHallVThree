@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/navy"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signIn"
+        android:text="Sign In"
+        android:textColor="@color/gold"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:layout_margin="50dp"
+        android:gravity="center"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/username"
+        android:layout_below="@id/signIn"
+        android:hint="Username"
+        android:textColorHint="@color/gold"
+        android:textColor="@color/gold"
+        android:layout_margin="10dp"
+        android:padding="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/passwd"
+        android:layout_below="@id/username"
+        android:hint="Password"
+        android:textColorHint="@color/gold"
+        android:textColor="@color/gold"
+        android:layout_margin="10dp"
+        android:padding="20dp"
+        android:inputType="textPassword"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginBTN"
+        android:layout_below="@id/passwd"
+        android:text="LOGIN"
+        android:textColor="@color/gold"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
+
+
+
+
+
+
+</RelativeLayout>
