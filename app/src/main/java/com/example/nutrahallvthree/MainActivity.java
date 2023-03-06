@@ -5,38 +5,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
+import org.w3c.dom.Text;
+
 public class MainActivity extends AppCompatActivity {
 
+    EditText firstName;
+    EditText lastName;
+    EditText userName;
+    EditText passWord;
+
+    MaterialButton login;
+
+    MaterialButton signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//setting the username and password entries with entries
-        TextView username =(TextView) findViewById(R.id.username);
-        TextView password =(TextView) findViewById(R.id.passwd);
+        firstName = findViewById(R.id.firstname);
+        lastName = findViewById(R.id.lastname);
+        userName = findViewById(R.id.username);
+        passWord = findViewById(R.id.passwd);
+        login = findViewById(R.id.loginBTN);
+        signup = findViewById(R.id.signBTN);
 
-        MaterialButton login =(MaterialButton) findViewById(R.id.loginBTN);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (username.getText().toString().equals("testuser") && password.getText().toString().equals("testpass")){
-                    //login successful
-                   // Toast.makeText(MainActivity.this,"login successful",Toast.LENGTH_SHORT).show();
-                    //will need to make an action when login is successful to bring to activity_main2.xml
-                    Intent intentOne = new Intent(getApplicationContext(),MainActivity2.class);
-                    startActivity(intentOne);
 
+                startActivity(new Intent(MainActivity.this, MainActivity2.class));
 
-                }else
-                    //login unsuccessful
-                    Toast.makeText(MainActivity.this,"login unsuccessful",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }

@@ -10,8 +10,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/signIn"
-        android:text="Sign In"
+        android:id="@+id/signUp"
+        android:text="Sign Up"
         android:textColor="@color/gold"
         android:textSize="40dp"
         android:textStyle="bold"
@@ -21,8 +21,32 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/firstname"
+        android:layout_below="@id/signUp"
+        android:hint="first name"
+        android:textColorHint="@color/gold"
+        android:textColor="@color/gold"
+        android:layout_margin="10dp"
+        android:padding="20dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lastname"
+        android:layout_below="@id/firstname"
+        android:hint="last name"
+        android:textColorHint="@color/gold"
+        android:textColor="@color/gold"
+        android:layout_margin="10dp"
+        android:padding="20dp"/>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/username"
-        android:layout_below="@id/signIn"
+        android:layout_below="@id/lastname"
         android:hint="Username"
         android:textColorHint="@color/gold"
         android:textColor="@color/gold"
@@ -44,14 +68,24 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginBTN"
+        android:id="@+id/signBTN"
         android:layout_below="@id/passwd"
-        android:text="LOGIN"
+        android:text="Sign Up"
         android:textColor="@color/gold"
         android:textStyle="bold"
         android:textSize="20dp"
         android:layout_centerHorizontal="true"/>
 
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginBTN"
+        android:layout_below="@id/signBTN"
+        android:text="LOGIN"
+        android:textColor="@color/gold"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_centerHorizontal="true"/>
 
 
 

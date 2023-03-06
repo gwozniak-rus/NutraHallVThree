@@ -2,13 +2,13 @@ package com.example.nutrahallvthree;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import java.util.Random;
-import java.util.Stack;
+import com.google.android.material.button.MaterialButton;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -17,19 +17,26 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+//setting the username and password entries with entries
+        TextView username =(TextView) findViewById(R.id.username);
+        TextView password =(TextView) findViewById(R.id.passwd);
 
-        final Random randomCode = new Random();
+        MaterialButton login =(MaterialButton) findViewById(R.id.loginBTN);
 
-        Button generateButton = (Button) findViewById(R.id.codeGenerate);
-
-        final TextView textGenerate = (TextView) findViewById(R.id.generated);
-        generateButton.setOnClickListener(new View.OnClickListener() {
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                //this will create the random code when the random code button is clicked
-                textGenerate.setText(String.valueOf(randomCode.nextInt(10000)));
+            public void onClick(View view) {
+                if (username.getText().toString().equals("testuser") && password.getText().toString().equals("testpass")){
+                    //login successful
+                    //intentOne will go to sign in page when proper credentials are entered
+                    Intent intentOne = new Intent(getApplicationContext(),MainActivity3.class);
+                    startActivity(intentOne);
+
+
+                }else
+                    //login unsuccessful message
+                    Toast.makeText(MainActivity2.this,"login unsuccessful",Toast.LENGTH_SHORT).show();
             }
-        }
-        );
+        });
     }
 }
