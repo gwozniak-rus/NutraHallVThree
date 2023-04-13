@@ -2,6 +2,7 @@ package com.example.nutrahallvthree.data;
 
 public class User {
 
+        private int id;
 
         private String firstname;
         private String lastname;
@@ -11,7 +12,16 @@ public class User {
         private String password;
         //need user_time
 
-        public String getPassword() {
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPassword() {
             return password;
         }
         public void setPassword(String password) {
@@ -40,6 +50,16 @@ public class User {
 
         public void setFirstname(String firstname) {
             this.firstname = firstname;
+        }
+
+        public String toString(){
+        return "User{" +
+            "id=" + id +
+                    ", firstname='" + firstname + '\'' +
+                    ", lastname='" + lastname + '\'' +
+                    ", username='" + username + '\'' +
+                    ", password='" + password + '\'' +
+                    '}';
         }
     }
     

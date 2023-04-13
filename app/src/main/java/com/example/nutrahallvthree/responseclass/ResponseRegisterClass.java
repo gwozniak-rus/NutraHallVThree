@@ -2,6 +2,8 @@ package com.example.nutrahallvthree.responseclass;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 public class ResponseRegisterClass{
 
 	@SerializedName("firstname")
@@ -16,8 +18,9 @@ public class ResponseRegisterClass{
 	@SerializedName("username")
 	private String username;
 
-	public ResponseRegisterClass(String toString, String toString1, String toString2, String toString3) {
+	public ResponseRegisterClass(String firstname, String lastname, String username, String password) {
 	}
+
 
 	public void setFirstname(String firstname){
 		this.firstname = firstname;

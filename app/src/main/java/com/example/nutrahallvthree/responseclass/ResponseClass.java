@@ -1,14 +1,16 @@
 package com.example.nutrahallvthree.responseclass;
-
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseClass {
+public class ResponseClass{
 
 	@SerializedName("firstname")
 	private String firstname;
 
 	@SerializedName("password")
 	private String password;
+
+	@SerializedName("id")
+	private Integer id;
 
 	@SerializedName("lastname")
 	private String lastname;
@@ -32,6 +34,14 @@ public class ResponseClass {
 		return password;
 	}
 
+	public void setId(Integer id){
+		this.id = id;
+	}
+
+	public Integer getId(){
+		return id;
+	}
+
 	public void setLastname(String lastname){
 		this.lastname = lastname;
 	}
@@ -51,9 +61,10 @@ public class ResponseClass {
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"ResponseClass{" + 
 			"firstname = '" + firstname + '\'' + 
 			",password = '" + password + '\'' + 
+			",id = '" + id + '\'' + 
 			",lastname = '" + lastname + '\'' + 
 			",username = '" + username + '\'' + 
 			"}";

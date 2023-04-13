@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.nutrahallvthree.responseclass.ResponseClass;
@@ -29,11 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-//setting the username and password entries with entries
-        //EditText userName, passWord;
-        //TextView username =(TextView) findViewById(R.id.username);
-       // TextView password =(TextView) findViewById(R.id.passwd);
-        //MaterialButton login =(MaterialButton) findViewById(R.id.loginBTN);
+
 
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,51 +38,26 @@ public class MainActivity2 extends AppCompatActivity {
                             lastName.getText().toString(),userName.getText().toString(),passWord.getText().toString());
 
                     UserApi userApi = RetrofitService.getInstance().create(UserApi.class);
-                    userApi.getUser(responseRegisterClass).enqueue(new Callback<ResponseClass>() {
+                    userApi.getUser(responseRegisterClass).enqueue(new Callback<ResponseRegisterClass>() {
                         @Override
-                        public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
+                        public void onResponse(Call<ResponseRegisterClass> call, Response<ResponseRegisterClass> response) {
                             if (response.body() != null){
                                 Toast.makeText(MainActivity2.this, "Login Successful",
                                         Toast.LENGTH_SHORT).show();
                                 Intent intentOne = new Intent(getApplicationContext(),MainActivity3.class);
                                 startActivity(intentOne);
                             }
-
                         }
+
                         @Override
-                        public void onFailure(Call<ResponseClass> call, Throwable t) {
+                        public void onFailure(Call<ResponseRegisterClass> call, Throwable t) {
                             Toast.makeText(MainActivity2.this, "Invalid Credentials",
                                     Toast.LENGTH_SHORT).show();
                         }
                     });
-
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-                /*if (username.getText().toString().equals("testuser") && password.getText().toString().equals("testpass")){
-                    //login successful
-                    //intentOne will go to sign in page when proper credentials are entered
-                    Intent intentOne = new Intent(getApplicationContext(),MainActivity3.class);
-                    startActivity(intentOne);
-                    //here needs to check with database/firebase authenticator
-
-
-                }else
-                    //login unsuccessful message
-                    Toast.makeText(MainActivity2.this,"login unsuccessful",Toast.LENGTH_SHORT).show();*/
             }
         });
-
     }
   private boolean validateFields() {
       if (TextUtils.isEmpty (firstName.getText().toString())
