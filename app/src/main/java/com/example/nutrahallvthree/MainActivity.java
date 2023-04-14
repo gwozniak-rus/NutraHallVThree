@@ -23,6 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
+
+
     EditText firstname,lastname,username,password;
     MaterialButton toLoginBTN,signBTN;
 
@@ -47,6 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         //signup handler
         signBTN.setOnClickListener(new View.OnClickListener() {
+            //getting the text from the edit text boxes
+
             @Override
             public void onClick(View view) {
                 if (validateFields()){
@@ -56,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
                                     username.getText().toString(),
                                     password.getText().toString());
 
-                UserApi userApi = RetrofitService.getInstance().create(UserApi.class);
+                    RetrofitService retrofitService = new RetrofitService();
+                UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
 
                 userApi.addUser(responseRegisterClass).enqueue(new Callback<ResponseRegisterClass>(){
                     @Override
@@ -85,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
         //private void register the user if credentials are valid
     }
-    private boolean validateFields(){
+   private boolean validateFields(){
         if (TextUtils.isEmpty(firstname.getText().toString())
                 && TextUtils.isEmpty(lastname.getText().toString())
                 && TextUtils.isEmpty(username.getText().toString())
@@ -94,10 +99,10 @@ public class MainActivity extends AppCompatActivity {
     }return true;
 }
     private void initializeListeners(){
-        firstname=findViewById(R.id.firstName);
-        lastname=findViewById(R.id.lastName);
-        username=findViewById(R.id.userName);
-        password=findViewById(R.id.passWord);
+        firstname=findViewById(R.id.firstname);
+        lastname=findViewById(R.id.lastname);
+        username=findViewById(R.id.username);
+        password=findViewById(R.id.password);
         signBTN=findViewById(R.id.signBTN);
         toLoginBTN=findViewById(R.id.toLoginBTN);
     }

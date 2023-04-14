@@ -37,7 +37,8 @@ public class MainActivity2 extends AppCompatActivity {
                     ResponseRegisterClass responseRegisterClass = new ResponseRegisterClass(firstName.getText().toString(),
                             lastName.getText().toString(),userName.getText().toString(),passWord.getText().toString());
 
-                    UserApi userApi = RetrofitService.getInstance().create(UserApi.class);
+                    RetrofitService retrofitService = new RetrofitService();
+                    UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
                     userApi.getUser(responseRegisterClass).enqueue(new Callback<ResponseRegisterClass>() {
                         @Override
                         public void onResponse(Call<ResponseRegisterClass> call, Response<ResponseRegisterClass> response) {

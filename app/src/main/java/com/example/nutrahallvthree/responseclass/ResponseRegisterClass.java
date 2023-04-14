@@ -6,20 +6,18 @@ import java.io.Serializable;
 
 public class ResponseRegisterClass{
 
-	@SerializedName("firstname")
+
 	private String firstname;
 
-	@SerializedName("password")
+
 	private String password;
 
-	@SerializedName("lastname")
 	private String lastname;
 
-	@SerializedName("username")
 	private String username;
 
-	public ResponseRegisterClass(String firstname, String lastname, String username, String password) {
-	}
+	//public ResponseRegisterClass(String toString, String toString1, String toString2, String toString3) {}
+	//^^may have to try replacing toString's to firstname, etc.
 
 
 	public void setFirstname(String firstname){
@@ -54,14 +52,23 @@ public class ResponseRegisterClass{
 		return username;
 	}
 
+	public ResponseRegisterClass(String firstname, String lastname,
+								 String username, String password){
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+
+	}
+
 	@Override
  	public String toString(){
 		return 
 			"ResponseRegisterClass{" + 
-			"firstname = '" + firstname + '\'' + 
-			",password = '" + password + '\'' + 
-			",lastname = '" + lastname + '\'' + 
-			",username = '" + username + '\'' + 
+			"firstname = '" + firstname + '\'' +
+			",password = '" + password + '\'' +
+			",lastname = '" + lastname + '\'' +
+			",username = '" + username + '\'' +
 			"}";
 		}
 }
