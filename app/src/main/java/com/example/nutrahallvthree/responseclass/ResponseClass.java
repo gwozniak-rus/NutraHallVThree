@@ -57,14 +57,22 @@ public class ResponseClass{
 	public String getUsername(){
 		return username;
 	}
+	public ResponseClass(String firstname, String lastname,
+								 String username, String password){
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.username = username;
+		this.password = password;
+
+	}
 
 	@Override
  	public String toString(){
 		return 
-			"ResponseClass{" + 
-			"firstname = '" + firstname + '\'' + 
-			",password = '" + password + '\'' + 
-			",id = '" + id + '\'' + 
+			"ResponseClass{" +
+			",id = '" + id + '\'' +
+			"firstname = '" + firstname + '\'' +
+			",password = '" + password + '\'' +
 			",lastname = '" + lastname + '\'' + 
 			",username = '" + username + '\'' + 
 			"}";

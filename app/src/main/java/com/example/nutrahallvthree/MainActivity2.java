@@ -27,6 +27,7 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        initializeListeners();
 
 
 
@@ -36,12 +37,14 @@ public class MainActivity2 extends AppCompatActivity {
                 if (validateFields()){
                     ResponseRegisterClass responseRegisterClass = new ResponseRegisterClass(firstName.getText().toString(),
                             lastName.getText().toString(),userName.getText().toString(),passWord.getText().toString());
-
+                    //ResponseClass responseClass = new ResponseClass(firstName.getText().toString(),lastName.getText().toString(),
+                      //      userName.getText().toString(),passWord.getText().toString());
                     RetrofitService retrofitService = new RetrofitService();
-                    UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
-                    userApi.getUser(responseRegisterClass).enqueue(new Callback<ResponseRegisterClass>() {
+                   UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
+                    //userApi.getUser(responseRegisterClass).enqueue(new Callback<ResponseClass>()
+                    userApi.getUser(responseRegisterClass).enqueue(new Callback<ResponseClass>(){
                         @Override
-                        public void onResponse(Call<ResponseRegisterClass> call, Response<ResponseRegisterClass> response) {
+                        public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
                             if (response.body() != null){
                                 Toast.makeText(MainActivity2.this, "Login Successful",
                                         Toast.LENGTH_SHORT).show();
@@ -51,7 +54,7 @@ public class MainActivity2 extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onFailure(Call<ResponseRegisterClass> call, Throwable t) {
+                        public void onFailure(Call<ResponseClass> call, Throwable t) {
                             Toast.makeText(MainActivity2.this, "Invalid Credentials",
                                     Toast.LENGTH_SHORT).show();
                         }

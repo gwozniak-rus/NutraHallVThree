@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<ResponseRegisterClass> call, Response<ResponseRegisterClass> response) {
                         if (response.body() != null){
                             Toast.makeText(MainActivity.this, "Registered User", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(MainActivity.this, MainActivity2.class));
                             finish();
                         }else {
                             Toast.makeText(MainActivity.this, "Something went wrong, make sure" +
@@ -88,7 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        //private void register the user if credentials are valid
     }
    private boolean validateFields(){
         if (TextUtils.isEmpty(firstname.getText().toString())

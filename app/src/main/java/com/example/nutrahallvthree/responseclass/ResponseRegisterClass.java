@@ -16,10 +16,6 @@ public class ResponseRegisterClass{
 
 	private String username;
 
-	//public ResponseRegisterClass(String toString, String toString1, String toString2, String toString3) {}
-	//^^may have to try replacing toString's to firstname, etc.
-
-
 	public void setFirstname(String firstname){
 		this.firstname = firstname;
 	}
