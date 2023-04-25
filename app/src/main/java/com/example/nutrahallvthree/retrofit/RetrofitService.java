@@ -17,7 +17,7 @@ public class RetrofitService {
     private void initializeRetrofit(){
         //Retrofit builder = new Retrofit.Builder()
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.4.56:8080/")
+                .baseUrl("http://172.28.3.173:8080/")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 //.client(new OkHttpClient.Builder().addInterceptor(httpLoggingInterceptor).build())
                 .build();
