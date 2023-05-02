@@ -7,7 +7,7 @@ public class CodeRegisterClass {
 	@SerializedName("code")
 	private int code;
 
-	public CodeRegisterClass(int nextInt) {
+	public CodeRegisterClass(int code) {
 		this.code = code;
 	}
 

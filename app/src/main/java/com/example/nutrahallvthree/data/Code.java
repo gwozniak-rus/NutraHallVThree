@@ -8,14 +8,14 @@ public class Code {
         return code;
     }
 
-    public void setCode(int code) {
+    public void setCode(int Code) {
         this.code = code;
     }
 
-    @Override
+
     public String toString() {
         return "Code{" +
-                "code=" + code +
+                "code=" + code + '\'' +
                 '}';
     }
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nutrahallvthree.data.Code;
 import com.example.nutrahallvthree.responseclass.CodeRegisterClass;
 import com.example.nutrahallvthree.retrofit.RetrofitService;
 import com.example.nutrahallvthree.retrofit.UserApi;
@@ -22,13 +23,18 @@ import retrofit2.Response;
 public class MainActivity3 extends AppCompatActivity {
     TextView textGenerate;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
 
-        final Random code = new Random();
+        int code = (int) (10000 * Math.random());
+
+
+        //final Random code = new Random();
+       // int code = rand;
 
 
         Button generateButton = (Button) findViewById(R.id.codeGenerate);
@@ -38,9 +44,12 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //this will create the random code when the random code button is clicked
-                textGenerate.setText(String.valueOf(code.nextInt(10000)));
-                if (textGenerate.getText().toString().isEmpty() != true){
-                    CodeRegisterClass codeRegisterClass = new CodeRegisterClass(code.nextInt());
+                //textGenerate.setText(String.valueOf(code.nextInt(10000)));
+                //textGenerate.setText(Integer.toString(code.nextInt(10000)));
+                textGenerate.setText(Integer.toString(code));
+                if (!textGenerate.getText().toString().isEmpty()){
+
+                    CodeRegisterClass codeRegisterClass = new CodeRegisterClass(code);
 
                     RetrofitService retrofitService = new RetrofitService();
                     UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
@@ -64,5 +73,6 @@ public class MainActivity3 extends AppCompatActivity {
                                           }
         );
     }
+
 
 }
